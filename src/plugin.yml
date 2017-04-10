@@ -1,0 +1,7 @@
+name: RandomTP
+version: 1.0
+main: me.iTurtleDerp.RandomTP.RandomTP
+description: Allows players to teleport to a random location within 1000 blocks each direction
+commands:
+  randomtp:
+    description: Go somewhere random!
