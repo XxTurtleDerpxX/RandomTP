@@ -14,27 +14,27 @@ public class RandomTP extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
-		getLogger().info("RandomTP Enabled");
+		getLogger().info("RandomTP enabled");
 	}
 
 	@Override
 	public void onDisable()
 	{
-		getLogger().info("RandomTP Disabled");
+		getLogger().info("RandomTP disabled");
 	}
 
-	public boolean onCommand(CommandSender theSender, Command cmd, String commandLabel, String[] args)
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		Server server = getServer();
 		ConsoleCommandSender console = server.getConsoleSender();
-		if(!(theSender instanceof Player))
+		if(!(sender instanceof Player))
 		{
 			console.sendMessage(ChatColor.RED + "You have to be a player to use this command!");
 		} 
-		if(theSender instanceof Player)
+		if(sender instanceof Player)
 		{	
-			Player player = (Player) theSender;
-			if(commandLabel.equalsIgnoreCase("randomtp"))
+			Player player = (Player) sender;
+			if(cmd.getName().equalsIgnoreCase("randomtp"))
 			{
 				if(player.hasPermission("randomtp.tp"))
 				{			
@@ -48,7 +48,7 @@ public class RandomTP extends JavaPlugin
 				}
 				else player.sendMessage(ChatColor.RED + "You don't have permission to randomly teleport!");
 			} else {
-				if(commandLabel.equalsIgnoreCase("rtp"))
+				if(cmd.getName().equalsIgnoreCase("rtp"))
 				{
 					if(player.hasPermission("randomtp.tp"))
 					{			
@@ -63,7 +63,6 @@ public class RandomTP extends JavaPlugin
 					else player.sendMessage(ChatColor.RED + "You don't have permission to randomly teleport!");
 				}
 			}
-			return true;
 		}
 		return true;
 	}
